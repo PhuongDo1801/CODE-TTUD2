@@ -1,23 +1,29 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int x[20]; 
+int x[10];
+bool visited[10];
 int n;
-bool visited[20];
+
 bool check(int v, int k){
     if(visited[v] == true) return false;
     return true;
 }
 
-void solution(){
+void input(){
+    cin>>n;
     for(int i=1; i<=n; i++){
+        visited[i] = false;
+    }
+}
+void solution(){
+    for(int i =1; i<=n; i++){
         cout<<x[i]<<" ";
     }
     cout<<endl;
 }
-
 void Try(int k){
-    for(int v=1; v<=n; v++){
+    for(int v = 1; v<=n; v++){
         if(check(v, k)){
             visited[v] = true;
             x[k] = v;
@@ -33,8 +39,7 @@ void Try(int k){
 }
 
 int main(){
-    cin>>n;
-    for(int i =1; i<=n; i++) visited[i] = false;
+    input();
     Try(1);
     return 0;
 }
